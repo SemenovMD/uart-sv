@@ -1,9 +1,9 @@
 # Module: axis_uart_transceiver
 
 ## Description
-### This module combines UART transmitter and receiver functionalities for AXI Stream data. It is designed to interface with AXI Stream protocols and provide UART communication.
+This module combines `UART transmitter` and receiver functionalities for `AXI Stream` data. It is designed to interface with AXI Stream protocols and provide UART communication.
 
-### Important: This is a fully parameterizable module:
+### This is a fully parameterizable module:
 - `Supports all baud rates`.
 - `Supports ODD and EVEN PARITY modes`.
 - `Supports changing the number of data bits`.
