@@ -1,9 +1,9 @@
 # Module: axis_uart_transceiver
 
 ## Description
-This module combines UART transmitter and receiver functionalities for AXI stream data. It is designed to interface with AXI stream protocols and provide UART communication.
+### This module combines UART transmitter and receiver functionalities for AXI Stream data. It is designed to interface with AXI Stream protocols and provide UART communication.
 
-**Important:** This is a fully parameterizable module:
+### Important: This is a fully parameterizable module:
 - `Supports all baud rates`.
 - `Supports ODD and EVEN PARITY modes`.
 - `Supports changing the number of data bits`.
@@ -11,16 +11,16 @@ This module combines UART transmitter and receiver functionalities for AXI strea
 - `Supports transmitting a large number of bytes in a single AXI transaction`.
 - `Supports changing the module clock frequency`.
 
-**Note:** Also included is a script for testing UART functionality in Python.
+### Note: Also included is a script for testing UART functionality in Python.
 
 ## Simulation
 To simulate the project using `QuestaSim`, you can use `make` commands. The simulation environment is set up to compile, elaborate, and run the testbench. To clean up the files generated during the simulation, you can use `make clean`.
 
-### Commands
+### Commands:
 - `make`: Compile, elaborate, and run the simulation.
 - `make clean`: Remove all files generated during the simulation.
 
-**Note:** Ensure that the path to QuestaSim (`vsim`) executable is added to your `bashrc` file for convenient access.
+### Note: Ensure that the path to QuestaSim (`vsim`) executable is added to your `bashrc` file.
 
 ## UART Frame
 The UART protocol transmits data in frames. Each frame consists of a start bit, data bits, optional parity bit, and stop bits. An example frame is shown in the figure below.
@@ -34,7 +34,7 @@ Wrapper modules are available in `Verilog` and `SystemVerilog`. The wrapper is i
 
 ## Features
 - UART transmission and reception
-- Designed for high-speed data transfer in AXI stream applications
+- Designed for high-speed data transfer in AXI Stream applications
 
 ## Parameters
 - `AXI_DATA_WIDTH` : Width of the input data bus (default: 32 bits)
@@ -52,8 +52,8 @@ Wrapper modules are available in `Verilog` and `SystemVerilog`. The wrapper is i
 - `tx_done`   : Output    : Flag indicating the completion of UART transmission
 - `rx_done`   : Output    : Flag indicating the completion of UART reception
 - `rx_error`  : Output    : Error flag for UART reception
-- `m_axis`    : Interface : Master AXI stream interface
-- `s_axis`    : Interface : Slave AXI stream interface
+- `m_axis`    : Interface : Master AXI Stream interface
+- `s_axis`    : Interface : Slave AXI Stream interface
 
 ## Notes
 - The `tx_done` and `rx_done` signals indicate the completion of transmission and reception respectively.

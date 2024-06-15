@@ -3,12 +3,12 @@
  * 
  * Description:
  *   This module combines UART transmitter and receiver functionalities 
- *   for AXI stream data. It is designed to interface with AXI stream protocols 
+ *   for AXI Stream data. It is designed to interface with AXI Stream protocols 
  *   and provide UART communication.
  * 
  * Features:
  *   - UART transmission and reception
- *   - Designed for high-speed data transfer in AXI stream applications
+ *   - Designed for high-speed data transfer in AXI Stream applications
  * 
  * Parameters:
  *   - AXI_DATA_WIDTH : Width of the input data bus (default: 32 bits)
@@ -26,8 +26,8 @@
  *   - tx_done   : Output    : Flag indicating the completion of UART transmission
  *   - rx_done   : Output    : Flag indicating the completion of UART reception
  *   - rx_error  : Output    : Error flag for UART reception
- *   - m_axis    : Interface : Master AXI stream interface
- *   - s_axis    : Interface : Slave AXI stream interface
+ *   - m_axis    : Interface : Master AXI Stream interface
+ *   - s_axis    : Interface : Slave AXI Stream interface
  * 
  * Notes:
  *   - The tx_done and rx_done signals indicate the completion of transmission and reception respectively.
