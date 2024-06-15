@@ -19,8 +19,8 @@ module axis_uart_tb;
 
     logic [1:0]                     flag;
 
-    logic [DATA_BITS-1:0]           uart_reg;
-    logic                           uart_parity;
+    logic [DATA_BITS-1:0]           uart_reg_rx;
+    logic                           uart_parity_rx;
 
     axis_uart_transceiver #
     (
@@ -49,13 +49,13 @@ module axis_uart_tb;
     initial
     begin
         aclk = 0;
-        forever #25 aclk = ~aclk;
+        forever #(CLK_PERIOD_NS/2) aclk = ~aclk;
     end
 
     initial 
     begin
         aresetn = 0;
-        #100 aresetn = 1; 
+        #(10*CLK_PERIOD_NS/2) aresetn = 1; 
     end
 
     initial 
@@ -67,15 +67,16 @@ module axis_uart_tb;
         uart_rx = 1;
 
         flag = 0;
-        uart_reg = 0;
-        uart_parity = 0;
+        uart_reg_rx = 0;
+        uart_parity_rx = 0;
     end
 
     initial
     begin
-        #100;
+        #(15*CLK_PERIOD_NS/2);
 
         fork
+            // AXI-Stream Slave
             forever
             begin
                 repeat ($urandom_range(AXI_TRAN_MIN_DELAY, AXI_TRAN_MAX_DELAY)) @(posedge aclk);
@@ -87,6 +88,7 @@ module axis_uart_tb;
                 s_axis.tvalid = 0;
             end
 
+            // AXI-Stream Master
             forever
             begin
                 repeat ($urandom_range(AXI_TRAN_MIN_DELAY, AXI_TRAN_MAX_DELAY)) @(posedge aclk);
@@ -128,31 +130,40 @@ module axis_uart_tb;
                 endcase
             end
 
+            // UART RX
             forever
             begin
                 repeat ($urandom_range(UART_RX_MIN_DELAY, UART_RX_MAX_DELAY))
                 begin
-                    #8690;
+                    #DUTY_BITS;
                 end
                 
                 for (int j = 0; j < AXI_DATA_WIDTH/DATA_BITS; j++)
                 begin
                     uart_rx = 0;
-                    #8690;
+                    #DUTY_BITS;
 
                     for (int i = 0; i < DATA_BITS; i++) 
                     begin
                         uart_rx = $random;
-                        uart_reg[i] = uart_rx;
-                        #8690;
+                        uart_reg_rx[i] = uart_rx;
+                        #DUTY_BITS;
                     end
 
-                    uart_parity = !(^uart_reg);
-                    uart_rx = uart_parity;
-                    #8690;
+                    if (!PARITY_BITS)
+                    begin
+                        uart_parity_rx = !(^uart_reg_rx);
+                        uart_rx = uart_parity_rx;
+                    end else
+                    begin
+                        uart_parity_rx = ^uart_reg_rx;
+                        uart_rx = uart_parity_rx;
+                    end
+
+                    #DUTY_BITS;
 
                     uart_rx = 1;
-                    #8690;
+                    #(DUTY_BITS*STOP_BITS);
                 end
             end
         join

@@ -13,7 +13,7 @@
  *   - Handles data ready/valid flags for AXI stream interfaces
  * 
  * Parameters:
- *   - AXI_DATA_WIDTH : Width of the input data bus (default: 8 bits)
+ *   - AXI_DATA_WIDTH : Width of the input data bus (default: 32 bits)
  *   - CLOCK          : System clock frequency (default: 100 MHz)
  *   - BAUD_RATE      : Baud rate for UART communication (default: 115200)
  *   - DATA_BITS      : Number of data bits in UART frame (default: 8)
