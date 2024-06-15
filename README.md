@@ -3,7 +3,7 @@
 ## Description
 This module combines UART transmitter and receiver functionalities for AXI Stream data. It interfaces with AXI Stream protocols to provide UART communication.
 
-### Fully Parameterizable Module:
+### Parameterizable Module:
 - Supports all baud rates.
 - Supports ODD and EVEN PARITY modes.
 - Supports changing the number of data bits.
