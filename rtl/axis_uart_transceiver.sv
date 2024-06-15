@@ -60,7 +60,7 @@
 
 module axis_uart_transceiver
 
-#(parameter AXI_DATA_WIDTH    = 8,
+#(parameter AXI_DATA_WIDTH    = 32,
             CLOCK             = 100_000_000,
             BAUD_RATE         = 115_200,
             DATA_BITS         = 8,

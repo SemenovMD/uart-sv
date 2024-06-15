@@ -3,12 +3,34 @@
 ## Description
 This module combines UART transmitter and receiver functionalities for AXI stream data. It is designed to interface with AXI stream protocols and provide UART communication.
 
+**Important:** This is a fully parameterizable module:
+- `Supports all baud rates`.
+- `Supports ODD and EVEN PARITY modes`.
+- `Supports changing the number of data bits`.
+- `Supports changing the number of stop bits`.
+- `Supports transmitting a large number of bytes in a single AXI transaction`.
+- `Supports changing the module clock frequency`.
+
+**Note:** Also included is a script for testing UART functionality in Python.
+
 ## Simulation
-To simulate the project using QuestaSim, you can use `make` commands. The simulation environment is set up to compile, elaborate, and run the testbench. To clean up the files generated during the simulation, you can use `make clean`.
+To simulate the project using `QuestaSim`, you can use `make` commands. The simulation environment is set up to compile, elaborate, and run the testbench. To clean up the files generated during the simulation, you can use `make clean`.
 
 ### Commands
 - `make`: Compile, elaborate, and run the simulation.
 - `make clean`: Remove all files generated during the simulation.
+
+**Note:** Ensure that the path to QuestaSim (`vsim`) executable is added to your `bashrc` file for convenient access.
+
+## UART Frame
+The UART protocol transmits data in frames. Each frame consists of a start bit, data bits, optional parity bit, and stop bits. An example frame is shown in the figure below.
+
+![Local Image](image/uart_frame.png)
+
+## Wrappers
+Wrapper modules are available in `Verilog` and `SystemVerilog`. The wrapper is illustrated in the figure below:
+
+![Local Image](image/uart_symbol.png)
 
 ## Features
 - UART transmission and reception
