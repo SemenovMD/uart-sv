@@ -9,8 +9,6 @@
  * Features:
  *   - UART transmission and reception
  *   - Designed for high-speed data transfer in AXI stream applications
- *   - Supports synchronous active-low reset
- *   - Handles data ready/valid flags for AXI stream interfaces
  * 
  * Parameters:
  *   - AXI_DATA_WIDTH : Width of the input data bus (default: 32 bits)
@@ -32,7 +30,6 @@
  *   - s_axis    : Interface : Slave AXI stream interface
  * 
  * Notes:
- *   - Ensure that the module is properly reset before use.
  *   - The tx_done and rx_done signals indicate the completion of transmission and reception respectively.
  *   - The rx_error signal encodes different error states:
  *     - 00: No error

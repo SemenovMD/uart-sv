@@ -3,11 +3,16 @@
 ## Description
 This module combines UART transmitter and receiver functionalities for AXI stream data. It is designed to interface with AXI stream protocols and provide UART communication.
 
+## Simulation
+To simulate the project using QuestaSim, you can use `make` commands. The simulation environment is set up to compile, elaborate, and run the testbench. To clean up the files generated during the simulation, you can use `make clean`.
+
+### Commands
+- `make`: Compile, elaborate, and run the simulation.
+- `make clean`: Remove all files generated during the simulation.
+
 ## Features
 - UART transmission and reception
 - Designed for high-speed data transfer in AXI stream applications
-- Supports synchronous active-low reset
-- Handles data ready/valid flags for AXI stream interfaces
 
 ## Parameters
 - `AXI_DATA_WIDTH` : Width of the input data bus (default: 32 bits)
@@ -29,7 +34,6 @@ This module combines UART transmitter and receiver functionalities for AXI strea
 - `s_axis`    : Interface : Slave AXI stream interface
 
 ## Notes
-- Ensure that the module is properly reset before use.
 - The `tx_done` and `rx_done` signals indicate the completion of transmission and reception respectively.
 - The `rx_error` signal encodes different error states:
   - `00`: No error
