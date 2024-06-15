@@ -1,4 +1,4 @@
-# AXI UART Transceiver Module
+# AXI Stream UART Transceiver Module
 
 ## Description
 This module combines UART transmitter and receiver functionalities for AXI Stream data. It interfaces with AXI Stream protocols to provide UART communication.
