@@ -12,4 +12,6 @@ package pkg_tb;
     parameter UART_RX_MIN_DELAY = 5;
     parameter UART_RX_MAX_DELAY = 20;
 
+    parameter NUM_TESTS = 100;
+
 endpackage
