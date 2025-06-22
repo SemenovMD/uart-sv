@@ -1,10 +1,8 @@
 interface axis_if;
 
-    parameter AXI_DATA_WIDTH = 32;
-
-    logic   [AXI_DATA_WIDTH-1:0]    tdata;
-    logic                           tvalid;
-    logic                           tready;
+    logic   [7:0]   tdata;
+    logic           tvalid;
+    logic           tready;
 
     modport m_axis
     (

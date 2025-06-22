@@ -14,10 +14,10 @@ vlog -sv rtl/axis_if.sv
 vlog -sv rtl/axis_uart_tx.sv
 vlog -sv rtl/axis_uart_rx.sv
 vlog -sv rtl/axis_uart.sv
-vlog -sv tb/axis_uart_tb.sv
+vlog -sv tb/axis_uart_simple_tb.sv
 
 # Simulate the testbench
-vsim -t 1ns -voptargs="+acc" axis_uart_tb
+vsim -t 1ns -voptargs="+acc" axis_uart_simple_tb
 
 # Add signals to the waveform window
 add wave -radix binary          axis_uart_inst/aclk
@@ -47,12 +47,11 @@ add wave -radix unsigned        axis_uart_inst/axis_uart_tx_inst/count_bit
 add wave -radix hexadecimal     axis_uart_inst/axis_uart_tx_inst/uart_buf
 
 # Add testbench signals
-add wave -radix unsigned        test_count
-add wave -radix unsigned        error_count
-add wave -radix unsigned        flag
+add wave -radix unsigned        test_index
+add wave -radix unsigned        received_data
 
 # Run the simulation for the specified time
-run 10ms
+run 5ms
 
 # Zoom out to show all waveform data
-wave zoom full
+wave zoom full 

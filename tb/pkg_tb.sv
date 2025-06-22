@@ -1,11 +1,7 @@
 package pkg_tb;
 
-    parameter AXI_DATA_WIDTH = 32;
-    parameter CLOCK = 20_000_000;
-    parameter BAUD_RATE = 460_800;
-    parameter DATA_BITS = 8;
-    parameter STOP_BITS = 1;
-    parameter PARITY_BITS = 0;
+    parameter CLOCK = 100_000_000;
+    parameter BAUD_RATE = 115_200;
 
     parameter CLK_PERIOD_NS = 1_000_000_000 / CLOCK;
     parameter DUTY_BITS = 1_000_000_000 / BAUD_RATE;
