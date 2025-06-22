@@ -80,8 +80,8 @@ def main():
     
     # Open files for recording data
     try:
-        file_rx = open("rx_data.txt", "w")
-        file_tx = open("tx_data.txt", "w")
+        file_rx = open("python/rx_data.txt", "w")
+        file_tx = open("python/tx_data.txt", "w")
     except IOError as e:
         print(f"Error opening files: {e}")
         com_port.close()
