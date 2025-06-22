@@ -16,11 +16,4 @@ clean:
 	rm -f vsim.wlf
 	@echo "Clean completed."
 
-help:
-	@echo "Available targets:"
-	@echo "  all        - Run full simulation (default)"
-	@echo "  sim        - Run full simulation with random data"
-	@echo "  clean      - Clean simulation files"
-	@echo "  help       - Show this help message"
-
 .PHONY: all sim clean help
